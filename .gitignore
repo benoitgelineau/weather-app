@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# API Key
+/src/secrets.js
+
 # testing
 /coverage
 
