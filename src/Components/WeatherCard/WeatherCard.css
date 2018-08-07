@@ -1,0 +1,12 @@
+.weatherCard {
+  font-size: 18px; /* control card size here */
+  background: #fff;
+  display: inline-block;
+  width: 8em;
+  margin: 5px;
+  padding: 8px 0;
+}
+
+.weatherCard p {
+  margin: 0;
+}

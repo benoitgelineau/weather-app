@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import WeatherList from './Components/WeatherList';
+import style from './App.css';
+import WeatherList from './Components/WeatherList/WeatherList';
 import API_KEY from './secrets';
 
 class App extends Component {
@@ -40,14 +40,14 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.lat !== prevState.lat && this.state.lon !== prevState.lon) {
+    if (this.state.lat !== prevState.lat || this.state.lon !== prevState.lon) {
       this.fetchData();
     }
   }
 
   render() {
     return (
-      <div className="App">
+      <div className={style.App}>
         <WeatherList data={this.state.data}/>
       </div>
     );
