@@ -1,12 +1,36 @@
 .weatherCard {
-  font-size: 18px; /* control card size here */
+  font-size: 16px; /* control card size here */
   background: #fff;
   display: inline-block;
   width: 8em;
   margin: 5px;
-  padding: 8px 0;
+  vertical-align: top;
+}
+
+.weatherCard:hover {
+  background: lightgrey;
+  cursor: pointer;
 }
 
 .weatherCard p {
   margin: 0;
+}
+
+.weatherCard p:nth-child(1) {
+  padding-top: 8px;
+}
+
+.weatherCard p:nth-child(3) {
+  padding-bottom: 8px;
+}
+
+.detail {
+  /* border: 1px solid black; */
+  text-align: left;
+}
+
+.detail ul {
+  /* border: 1px solid black; */
+  list-style-type: none;
+  padding-left: 0;
 }

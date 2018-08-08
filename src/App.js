@@ -6,12 +6,16 @@ import API_KEY from './secrets';
 class App extends Component {
   constructor(props) {
     super(props);
-
+    // Default coordinates to Paris, FR
     this.state = {
       lat: '48.8566',
       lon: '2.3522',
-      data: {}
+      data: {},
+      prevView: 0,
+      expanded: false
     }
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   getCoordinates() {
@@ -34,6 +38,13 @@ class App extends Component {
       .then(data => this.setState({ data: data }))
       .catch(error => console.log(error))
   }
+  
+  handleClick(el) {
+    this.setState(prevState => ({
+      prevView: el,
+      expanded: el !== prevState.prevView ? (prevState.expanded ? prevState.expanded : !prevState.expanded) : !prevState.expanded
+    }))
+  }
 
   componentDidMount() {
     this.getCoordinates();
@@ -48,7 +59,11 @@ class App extends Component {
   render() {
     return (
       <div className={style.App}>
-        <WeatherList data={this.state.data}/>
+        <WeatherList 
+          data={this.state.data} 
+          prevView={this.state.prevView}
+          expanded={this.state.expanded}
+          onClick={this.handleClick}/>
       </div>
     );
   }

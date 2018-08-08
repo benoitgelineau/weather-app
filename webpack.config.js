@@ -1,14 +1,14 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./public/index.html",
-  filename: "./index.html"
+  // template: path.resolve(__dirname, 'public', 'index.html')
+  template: './public/index.html'
 });
 
 module.exports = {
-  entry: './src', /** /index.js default */
   output: {
-    path: __dirname + '/build',
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
   module: {
@@ -16,8 +16,8 @@ module.exports = {
       {
         test: /\.js$/,
         use: { loader: 'babel-loader' },
-        exclude: '/node_modules/',
-        include: __dirname + '/src'
+        exclude: path.resolve(__dirname, 'node_modules'),
+        include: path.resolve(__dirname, 'src')
       },
       {
         test: /\.css$/,
@@ -30,7 +30,7 @@ module.exports = {
               modules: true,
               localIdentName: "[name]_[local]_[hash:base64:5]",
               minimize: true,
-              importLoaders: 1
+              importLoaders: 1,
             }
           },
         ],
