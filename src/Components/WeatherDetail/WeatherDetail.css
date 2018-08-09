@@ -1,0 +1,10 @@
+.detail {
+  /* border: 1px solid black; */
+  text-align: left;
+}
+
+.detail ul {
+  /* border: 1px solid black; */
+  list-style-type: none;
+  padding-left: 0;
+}
