@@ -1,25 +1,35 @@
 .weatherCard {
-  font-size: 16px; /* control card size here */
-  background: #fff;
   display: inline-block;
-  width: 8em;
-  margin: 5px;
   vertical-align: top;
+  font-family: 'Libre Franklin', Tahoma, Verdana, sans-serif;
 }
 
-.weatherCard:hover {
-  background: lightgrey;
-  cursor: pointer;
+.weatherBox {
+  font-size: 18px; /* control card size here */
+  width: 8em;
+  background: #fff;
+  display: inherit;
+  vertical-align: inherit;
 }
 
-.weatherCard p {
+.weatherBox > p {
   margin: 0;
 }
 
-.weatherCard p:nth-child(1) {
+.weatherBox > p:first-child {
   padding-top: 8px;
 }
 
-.weatherCard p:nth-child(3) {
+.weatherBox > p:last-child {
   padding-bottom: 8px;
+}
+
+.weatherBox > p span {
+  font-size: 0.8em;
+}
+
+.weatherBox:hover {
+  background: rgba(83, 194, 198, 0.5);
+  color: white;
+  cursor: pointer;
 }

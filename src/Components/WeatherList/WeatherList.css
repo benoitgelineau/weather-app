@@ -21,7 +21,8 @@
   width: 5px;
   height: 14px;
   border-radius: 20%;
-  background: #fff;
+  /* background: #53C2C6; */
+  background: rgba(83, 194, 198, 0.5);
 }
 
 .loadSpinner div:nth-child(1) {

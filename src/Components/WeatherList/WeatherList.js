@@ -68,7 +68,7 @@ class WeatherList extends Component {
 
       return (
         <div>
-          <h1>{data.city.name}</h1>
+          <h1 style={{fontFamily: 'Noto Sans, sans-serif'}}>{data.city.name}</h1>
           {cards}
         </div>
       )

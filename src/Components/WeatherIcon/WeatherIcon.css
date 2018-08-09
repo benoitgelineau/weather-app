@@ -9,7 +9,7 @@
 
 /* Clouds */
 .cloud {
-  --cloud-color: lightgrey;
+  --cloud-color: #b3b3b3;
   position: absolute;
   z-index: 1;
   top: 50%;
@@ -47,7 +47,7 @@
     0 0 0 0.375em var(--cloud-color),
     -2.1875em 0.6875em 0 -0.3125em var(--cloud-color),
     2.0625em 0.9375em 0 -0.5625em var(--cloud-color);
-  opacity: 0.3;
+  opacity: 0.5;
   transform: scale(0.5) translate(6em, -3em);
   animation: cloud 4s linear infinite;
 }
@@ -58,7 +58,7 @@
 
 /* Sun */
 .sun {
-  --sun-color: #fc0;
+  --sun-color: #ffd24d;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -141,7 +141,7 @@
 
 /* Thunderstorm */
 .bolt {
-  --bolt-color: #fc0;
+  --bolt-color: #ffd24d;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -208,9 +208,9 @@
   top: 50%;
   left: 50%;
   margin: -1.025em 0 0 -1.0125em;
-  color: #333;
+  color: #b3b3b3;
   line-height: 1em;
-  opacity: 0.2;
+  opacity: 0.8;
   animation: spin 8s linear infinite reverse;
 }
 
@@ -242,7 +242,7 @@
 
 @keyframes cloud {
   0% { opacity: 0; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0.5; }
   100% {
     opacity: 0;
     transform: scale(0.5) translate(-200%, -3em);
