@@ -1,8 +1,6 @@
 .list {
   font-size: 0.8em;
   overflow: hidden;
-  /* position: relative; */
-  /* animation: showList .2s ease; */
 }
 
 .list > ul {
@@ -82,11 +80,4 @@
     transform: translate3d(0,0,0);
     opacity: 1;
   }
-}
-
-@keyframes showList {
-  /* from { top: -100% }
-  to { top: 0 } */
-  from { transform: translate3d(0,-100%,0) }
-  to { transform: translate3d(0,0,0) }
 }

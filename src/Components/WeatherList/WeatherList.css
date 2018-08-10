@@ -21,7 +21,6 @@
   width: 5px;
   height: 14px;
   border-radius: 20%;
-  /* background: #53C2C6; */
   background: rgba(83, 194, 198, 0.5);
 }
 
@@ -85,7 +84,6 @@
   animation-delay: 0s;
 }
 
-/* Animations */
 @keyframes loadSpinner {
   0% {
     opacity: 1;

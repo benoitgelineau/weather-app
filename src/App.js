@@ -6,37 +6,50 @@ import API_KEY from './secrets';
 class App extends Component {
   constructor(props) {
     super(props);
-    // Default coordinates to Paris, FR
+
     this.state = {
-      lat: '48.8566',
-      lon: '2.3522',
+      coord: {
+        lat: '',
+        lon: ''
+      },
       data: {},
       prevView: 0,
-      expanded: false
+      expanded: false,
+      error: false,
+      errMessage: ''
     }
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   getCoordinates() {
-  
     if (navigator.geolocation) {
+
       navigator.geolocation.getCurrentPosition(pos => {
         this.setState({
-          lat: pos.coords.latitude.toFixed(4),
-          lon: pos.coords.longitude.toFixed(4)
+          coord: {
+            lat: pos.coords.latitude.toFixed(4),
+            lon: pos.coords.longitude.toFixed(4)
+          }
+        })
+      }, error => {
+        console.warn(error);
+        this.setState({
+          error: true,
+          errMessage: 'Could not access geolocation'
         })
       })
     }
   }
 
   fetchData() {
-    let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${API_KEY}&lat=${this.state.lat}&lon=${this.state.lon}&units=metric`;
+    const { lat, lon } = this.state.coord;
+    const url = `http://api.openweathermap.org/data/2.5/forecast?APPID=${API_KEY}&lat=${lat}&lon=${lon}&units=metric`;
 
     fetch(url)
       .then(res => res.json())
       .then(data => this.setState({ data: data }))
-      .catch(error => console.log(error))
+      .catch(error => console.warn(error))
   }
   
   handleClick(el) {
@@ -50,20 +63,29 @@ class App extends Component {
     this.getCoordinates();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.lat !== prevState.lat || this.state.lon !== prevState.lon) {
-      this.fetchData();
-    }
+  componentDidUpdate() {
+    this.state.error ? '' : this.fetchData();
   }
 
   render() {
+    const { error, errMessage, data, prevView, expanded } = this.state;
+    let display;
+
+    if (error) {
+      display = <h1>{errMessage}</h1>;
+    } else {
+      display = 
+        <WeatherList 
+          data={data} 
+          prevView={prevView}
+          expanded={expanded}
+          onClick={this.handleClick}
+        />
+    }
+
     return (
       <div className={style.App}>
-        <WeatherList 
-          data={this.state.data} 
-          prevView={this.state.prevView}
-          expanded={this.state.expanded}
-          onClick={this.handleClick}/>
+        {display}
       </div>
     );
   }
