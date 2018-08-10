@@ -10,9 +10,9 @@ const WeatherDetail = ({ data }) => {
     const tempMax = Math.round(info.main.temp_max);
     const tempMin = Math.round(info.main.temp_min);
     const weather = info.weather[0].main;
-    
+
     return (
-      <li key={hour}>
+      <li key={hour} className={style.detail}>
         <p className={style.hour}>{hour}</p>
         <div className={style.info}>
           <WeatherIcon weather={weather}/>
@@ -23,7 +23,7 @@ const WeatherDetail = ({ data }) => {
   });
 
   return (
-    <div className={style.detail}>
+    <div className={style.list}>
       <ul>
         {detail}
       </ul>
