@@ -31,7 +31,8 @@ class App extends Component {
             lat: pos.coords.latitude.toFixed(4),
             lon: pos.coords.longitude.toFixed(4)
           }
-        })
+        });
+        this.fetchData();
       }, error => {
         console.warn(error);
         this.setState({
@@ -61,10 +62,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getCoordinates();
-  }
-
-  componentDidUpdate() {
-    this.state.error ? '' : this.fetchData();
   }
 
   render() {
