@@ -14,7 +14,7 @@ const WeatherCard = ({ data, currentView, prevView, expanded, onClick }) => {
   const tempMin = Math.round(info.main.temp_min);
   const weather = info.weather[0].main;
   const dayString = new Date(data[0].dt_txt).toString().split(' ')[0];
-  console.log(`tempMax: ${tempMax}, weather: ${weather}, dayString: ${dayString}`);
+
   return (
     <div className={style.weatherCard}>
       <div className={style.weatherBox} onClick={() => onClick(currentView)}>
