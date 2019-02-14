@@ -1,3 +1,4 @@
-# weather-app
+# Weather App
 
-Provide your API key in src/secrets.js
+Environment variables:
+* `API_KEY`: Open Weather Map API key
